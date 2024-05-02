@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Tola Media</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .welcome-message {
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .username {
+            font-weight: bold;
+            color: #007bff;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            width: 150px;
+        }
+        .logout-btn {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+            text-decoration: none;
+        }
+        .logout-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Tola Media</h1>
+        <img src="OIP.jpeg" alt="Tola Media Logo" class="logo">
+        <p class="welcome-message">Hello, <span class="username"></span>! We're glad to have you as part of Tola Media.</p>
+        <a href="index.html" class="logout-btn">Logout</a>
+    </div>
+
+    <script>
+        // Function to extract username from URL query parameter
+        function getUsernameFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('username');
+        }
+
+        // Function to display username on the page
+        function displayUsername() {
+            const username = getUsernameFromURL();
+            if (username) {
+                document.querySelector('.username').innerText = username;
+            }
+        }
+
+        // Call the function when the page loads
+        window.onload = displayUsername;
+    </script>
+</body>
+</html>
